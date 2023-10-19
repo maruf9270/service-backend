@@ -1,0 +1,36 @@
+/* Add custom styles */
+.sidebar {
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: width 0.3s ease;
+    z-index: 1000;
+    background-color: #333;
+}
+
+.sidebar.collapsed {
+    width: 0;
+}
+
+.toggle-button {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .toggle-button {
+        display: block;
+        position: fixed;
+        left: 20px;
+        top: 20px;
+        z-index: 9999;
+    }
+
+    .sidebar {
+        width: 0;
+    }
+
+    .sidebar.collapsed {
+        width: 200px;
+    }
+}
