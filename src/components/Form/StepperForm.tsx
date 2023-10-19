@@ -33,7 +33,6 @@ const ReusableStepperForm = ({ FormProps }: { FormProps: IFromProps }) => {
 
   const formSubmit = (data: any) => {
     hanlderFunction(data);
-    console.log(data);
   };
 
   return (

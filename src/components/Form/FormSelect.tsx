@@ -30,9 +30,7 @@ const FormSelector = ({
   disabled,
 }: IInput) => {
   const { control, setValue } = useFormContext();
-  const handleChange = (selected: string) => {
-    console.log(selected);
-  };
+  const handleChange = (selected: string) => {};
   return (
     <>
       {label ? label : null}
@@ -43,7 +41,6 @@ const FormSelector = ({
         name={name}
         render={({ field }) => (
           <Select
-            defaultValue="lucy"
             style={{ width: "100%" }}
             onChange={field.onChange}
             value={field.value}

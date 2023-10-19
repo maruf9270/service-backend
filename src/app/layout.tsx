@@ -29,7 +29,6 @@ export default function RootLayout({
     if (localStorage.getItem("token")) {
       setLoading(false);
       setUser(localStorage.getItem("token") as SetStateAction<null>);
-      console.log(user);
     } else {
       setUserLoggedIn(false);
       setUser(null);

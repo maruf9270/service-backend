@@ -19,7 +19,7 @@ const CommentForm = ({ serviceId }: { serviceId: string }) => {
 
   const { data, isLoading } = useGetReviewsQuery(serviceId);
   const [postreview, { isSuccess, isError }] = usePostReviewMutation();
-  console.log(data);
+
   useEffect(() => {
     if (isSuccess) {
       message.success("Review added successfully");

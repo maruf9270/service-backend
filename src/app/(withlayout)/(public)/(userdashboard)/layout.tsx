@@ -48,16 +48,14 @@ const Dashboards = ({ children }: { children: React.ReactNode }) => {
   } = theme.useToken();
 
   return (
-    <Providers>
-      <Layout>
-        <Layout hasSider style={{ minHeight: "100vh" }}>
-          <Sidebar></Sidebar>
-          <Layout className="site-layout" style={{ marginLeft: 200 }}>
-            <LayoutContent>{children}</LayoutContent>
-          </Layout>{" "}
-        </Layout>
+    <Layout>
+      <Layout hasSider style={{ minHeight: "100vh" }}>
+        <Sidebar></Sidebar>
+        <Layout className="site-layout ml-0 md:ml-[200px]">
+          <LayoutContent>{children}</LayoutContent>
+        </Layout>{" "}
       </Layout>
-    </Providers>
+    </Layout>
   );
 };
 

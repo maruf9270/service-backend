@@ -3,8 +3,7 @@ import Image from "next/image";
 
 const page = async ({ params }: { params: { id: string } }) => {
   const data = await getData(params.id);
-  console.log(data);
-  console.log(params);
+
   return (
     <div className="max-w-7xl mx-auto">
       <div className="flex flex-col md:flex-row p-5 justify-center ">

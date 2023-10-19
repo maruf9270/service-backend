@@ -26,7 +26,6 @@ const NavigationBar = () => {
       dispatch(setLoadin({ loading: false }));
     }
   }, [isSuccess, data, dispatch, isError]);
-  console.log(data);
 
   const handleLogout = () => {
     dispatch(handleLogouts());
@@ -36,10 +35,9 @@ const NavigationBar = () => {
     setLogout(!logout);
   };
   const user = useAppSelector((state) => state.user);
-  console.log(user?.user?._id);
 
   return (
-    <div className="navbar bg-base-100 max-w-[100vw]">
+    <div className="navbar sticky top-0 bg-base-100 max-w-[100vw] z-50">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">

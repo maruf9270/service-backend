@@ -15,12 +15,13 @@ export const axiosBaseQuery =
       params?: AxiosRequestConfig["params"];
       headers?: AxiosRequestConfig["headers"];
       meta?: any;
+      body?: any;
       contentType: string;
     },
     unknown,
     unknown
   > =>
-  async ({ url, method, data, params, headers, contentType }) => {
+  async ({ url, method, data, params, headers, contentType, body }) => {
     try {
       const result = await axiosInstance({
         url: baseUrl + url,

@@ -3,7 +3,6 @@ import Link from "next/link";
 import React from "react";
 
 const Card = (data: any) => {
-  console.log(data);
   return (
     <div className="my-6">
       <Link href={`/single-service/${data.data._id}`}>
@@ -24,9 +23,11 @@ const Card = (data: any) => {
               <Button type="primary" className="w-full my-3">
                 Add to Cart
               </Button>
-              <Button type="primary" className="w-full">
-                Book an Apointment
-              </Button>
+              <Link href={`/book-apointment/${data?.data._id}`}>
+                <Button type="primary" className="w-full">
+                  Book an Apointment
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

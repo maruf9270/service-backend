@@ -10,7 +10,6 @@ axiosInstance.interceptors.request.use(
   function (config) {
     const accessToken = localStorage.getItem("token");
     if (accessToken) {
-      console.log(accessToken);
       config.headers.Authorization = accessToken;
     }
     // Do something before request is sent

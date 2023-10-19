@@ -1,9 +1,9 @@
 import { baseApi } from "../baseApi";
 
 const serviceApi = baseApi.injectEndpoints({
-  endpoints: (build) => ({
+  endpoints: (build: any) => ({
     postService: build.mutation({
-      query: (serviceData) => ({
+      query: (serviceData: any) => ({
         url: "/services",
         method: "POST",
         data: serviceData,
@@ -17,7 +17,18 @@ const serviceApi = baseApi.injectEndpoints({
         contentType: "application/json",
       }),
     }),
+    getService: build.query({
+      query: (id: string) => ({
+        url: `/services/${id}`,
+        method: "GET",
+        contentType: "application/json",
+      }),
+    }),
   }),
 });
 
-export const { usePostServiceMutation, useGetServicesQuery } = serviceApi;
+export const {
+  usePostServiceMutation,
+  useGetServicesQuery,
+  useGetServiceQuery,
+} = serviceApi;

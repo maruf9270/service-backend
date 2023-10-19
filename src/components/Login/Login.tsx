@@ -26,7 +26,6 @@ const Login = () => {
     login(data);
   };
   const user = useAppSelector((state) => state.user);
-  console.log(user);
 
   useEffect(() => {
     if (isSuccess) {

@@ -37,7 +37,7 @@ const Sidebar = () => {
         defaultOpenKeys={["sub1"]}
         style={{ height: "100%", borderRight: 0 }}
         items={sidebarItems("margin")}
-        theme="dark"
+        theme="light"
       />
     </Sider>
   );

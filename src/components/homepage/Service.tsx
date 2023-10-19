@@ -5,7 +5,6 @@ import Card from "../ui/Card";
 
 const Service = () => {
   const { data, isLoading, isError } = useGetServicesQuery(undefined);
-  console.log(data);
 
   return (
     <div className="flex justify-around items-center flex-wrap max-w-7xl mx-auto ">

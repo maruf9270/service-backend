@@ -15,26 +15,36 @@ const sidebarItems = (role: string) => {
       ],
     },
     {
-      label: "Admin",
-      key: "admin",
+      label: <Link href={"/add-admin"}>Add Admin</Link>,
+      key: "Add Admin",
       icon: <TeamOutlined />,
-      children: [
-        {
-          label: <Link href={"/super_admin/create_admin"}>Create Admin</Link>,
-          key: "new_admin",
-        },
-      ],
+    },
+    ,
+    {
+      label: <Link href={"/add-category"}>Add category</Link>,
+      key: "Add category",
+      icon: <TeamOutlined />,
+    },
+    ,
+    {
+      label: <Link href={"/add-service"}>Add Service</Link>,
+      key: "add sercice",
+      icon: <TeamOutlined />,
     },
     {
-      label: "Students",
+      label: <Link href={"/admins"}>Admins</Link>,
+      key: "Admins",
+      icon: <TeamOutlined />,
+    },
+    {
+      label: <Link href={"/users"}>Users</Link>,
+      key: "usrs",
+      icon: <TeamOutlined />,
+    },
+    {
+      label: <Link href={"/bookings"}>Bookings</Link>,
       key: "students",
       icon: <TeamOutlined />,
-      children: [
-        {
-          label: <Link href={"/student/create_student"}>Create Student</Link>,
-          key: "new_student",
-        },
-      ],
     },
   ];
   return defaultMenuItems;

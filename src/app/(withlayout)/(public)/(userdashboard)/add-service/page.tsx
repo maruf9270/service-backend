@@ -4,6 +4,7 @@ import FormInputs from "@/components/Form/FormInput";
 import FormSelector from "@/components/Form/FormSelect";
 import FormInputText from "@/components/Form/textarea";
 import ImageUploader from "@/components/Image/ImageComponent";
+import { useAppSelector } from "@/hooks/redux";
 import { useGetCategoryQuery } from "@/redux/api/category/categorySlice";
 import { usePostServiceMutation } from "@/redux/api/service/serviceSlice";
 import { Button, message } from "antd";
@@ -47,7 +48,6 @@ const AddService = () => {
     const priceTonumber = Number(params.price);
     params.price = priceTonumber;
 
-    console.log(params);
     const fromData = new FormData();
     fromData.append("image", params.image);
     fetch(
