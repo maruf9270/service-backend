@@ -22,7 +22,7 @@ const Book = ({ params }: { params: { id: string } }) => {
     {
       key: "1",
       label: "Name",
-      children: `${user?.user?.name.firstName} ${user?.user?.name?.middleName} ${user?.user?.name?.LastName}`,
+      children: `${user?.user?.name.firstName} ${user?.user?.name?.middleName} ${user?.user?.name?.lastName}`,
     },
     {
       key: "2",

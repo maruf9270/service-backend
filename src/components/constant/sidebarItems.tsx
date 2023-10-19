@@ -9,8 +9,12 @@ const sidebarItems = (role: string) => {
       icon: <UserOutlined></UserOutlined>,
       children: [
         {
-          label: "Change Password",
-          key: "cng-pass",
+          label: <Link href={"/profile"}>Profile</Link>,
+          key: "Pofile",
+        },
+        {
+          label: <Link href={"/update-profile"}>Update Profile</Link>,
+          key: "UpdatePofile",
         },
       ],
     },

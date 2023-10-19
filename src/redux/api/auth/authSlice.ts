@@ -28,8 +28,29 @@ const authApi: any = baseApi.injectEndpoints({
       }),
       providesTags: ["profile"],
     }),
+    getAll: build.query({
+      query: () => ({
+        url: "/auth/",
+        method: "GET",
+        contentType: "application/json",
+      }),
+      providesTags: ["user"],
+    }),
+    deleteUser: build.mutation({
+      query: (id) => ({
+        url: `/auth/${id}`,
+        method: "DELETE",
+        contentType: "application/json",
+      }),
+      invalidatesTags: ["user"],
+    }),
   }),
 });
 
-export const { useUserLoginMutation, useLoginMutation, useGetProfileQuery } =
-  authApi;
+export const {
+  useUserLoginMutation,
+  useLoginMutation,
+  useGetProfileQuery,
+  useGetAllQuery,
+  useDeleteUserMutation,
+} = authApi;
