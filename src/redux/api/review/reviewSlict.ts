@@ -1,3 +1,4 @@
+import build from "next/dist/build";
 import { baseApi } from "../baseApi";
 
 const reviewApi = baseApi.injectEndpoints({
@@ -19,7 +20,18 @@ const reviewApi = baseApi.injectEndpoints({
       }),
       providesTags: ["review"],
     }),
+    getallreview: builder.query({
+      query: () => ({
+        url: "/reviews",
+        method: "GET",
+        contentType: "application/json",
+      }),
+    }),
   }),
 });
 
-export const { useGetReviewsQuery, usePostReviewMutation } = reviewApi;
+export const {
+  useGetReviewsQuery,
+  usePostReviewMutation,
+  useGetallreviewQuery,
+} = reviewApi;

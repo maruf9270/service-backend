@@ -1,5 +1,8 @@
 import { useDeleteUserMutation } from "@/redux/api/auth/authSlice";
+import { IAuth } from "@/schemas/comment";
 import { message } from "antd";
+import Image from "next/image";
+import Link from "next/link";
 import React, { useEffect } from "react";
 
 const UserTable = ({ data }: { data: any }) => {
@@ -38,7 +41,7 @@ const UserTable = ({ data }: { data: any }) => {
         </thead>
         <tbody>
           {/* row 1 */}
-          {data.map((user) => (
+          {data.map((user: IAuth) => (
             <tr key={user._id}>
               <th>
                 <label>
@@ -49,10 +52,12 @@ const UserTable = ({ data }: { data: any }) => {
                 <div className="flex items-center space-x-3">
                   <div className="avatar">
                     <div className="mask mask-squircle w-12 h-12">
-                      <img
-                        src="/tailwind-css-component-profile-2@56w.png"
-                        alt="Avatar Tailwind CSS Component"
-                      />
+                      <Image
+                        src={user.profileImage as unknown as string}
+                        height={50}
+                        width={50}
+                        alt="si"
+                      ></Image>
                     </div>
                   </div>
                   <div>
@@ -77,6 +82,12 @@ const UserTable = ({ data }: { data: any }) => {
                 >
                   Delete
                 </button>
+                <Link
+                  href={`/edit-admin/${user?._id}`}
+                  className="btn btn-primary text-white btn-xs mx-2"
+                >
+                  Edit
+                </Link>
               </th>
             </tr>
           ))}

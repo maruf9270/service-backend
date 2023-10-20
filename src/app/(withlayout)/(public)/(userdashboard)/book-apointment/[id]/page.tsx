@@ -13,6 +13,7 @@ import { useGetServiceQuery } from "@/redux/api/service/serviceSlice";
 import { Badge, Button, message, type DescriptionsProps } from "antd";
 import { SetStateAction, useEffect, useState } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { IService } from "@/schemas/serviceInterfafce";
 
 const Book = ({ params }: { params: { id: string } }) => {
   const user = useAppSelector((state) => state.user);
@@ -43,7 +44,7 @@ const Book = ({ params }: { params: { id: string } }) => {
   // fjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj
   const [q, setQ] = useState(undefined);
   const { data: slotsdata } = useGetSlotsQuery(q);
-  const { data } = useGetServiceQuery(params.id);
+  const { data }: any = useGetServiceQuery(params.id);
   const HandleOnChnge = (date: any) => {
     const qd = {
       serviceId: data?.data?._id,
@@ -124,7 +125,7 @@ const Book = ({ params }: { params: { id: string } }) => {
   });
 
   const [post, { isError, isLoading, isSuccess }] = useBookMutation();
-  const handlesubmit = (datass) => {
+  const handlesubmit = (datass: any) => {
     const bkdata = {
       ...datass,
       serviceId: data?.data?._id,

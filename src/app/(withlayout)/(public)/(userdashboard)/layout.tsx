@@ -6,12 +6,14 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
-import { Breadcrumb, Layout, Menu, theme } from "antd";
+import { Breadcrumb, Layout, Menu, Spin, theme } from "antd";
 import Sidebar from "@/components/ui/Sidebar";
 
 import Navber from "@/components/ui/Header";
 import LayoutContent from "@/components/ui/Content";
 import Providers from "@/lib/Provider";
+import { useAppSelector } from "@/hooks/redux";
+import { useRouter } from "next/navigation";
 
 const { Header, Sider, Content } = Layout;
 
@@ -43,20 +45,32 @@ const items2: MenuProps["items"] = [
 });
 
 const Dashboards = ({ children }: { children: React.ReactNode }) => {
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
+  const user = useAppSelector((state) => state.user);
+  const router = useRouter();
+  if (user.loading) {
+    return (
+      <div className="min-h-[100vh] flex justify-center items-center">
+        <Spin tip="Loading" size="large">
+          <div className="content" />
+        </Spin>
+      </div>
+    );
+  }
 
-  return (
-    <Layout>
-      <Layout hasSider style={{ minHeight: "100vh" }}>
-        <Sidebar></Sidebar>
-        <Layout className="site-layout ml-0 md:ml-[200px]">
-          <LayoutContent>{children}</LayoutContent>
-        </Layout>{" "}
+  if (user?.user?._id) {
+    return (
+      <Layout>
+        <Layout hasSider style={{ minHeight: "100vh" }}>
+          <Sidebar></Sidebar>
+          <Layout className="site-layout ml-0 md:ml-[200px]">
+            <LayoutContent>{children}</LayoutContent>
+          </Layout>{" "}
+        </Layout>
       </Layout>
-    </Layout>
-  );
+    );
+  } else {
+    return router.push("/login");
+  }
 };
 
 export default Dashboards;

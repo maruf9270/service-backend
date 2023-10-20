@@ -12,6 +12,7 @@ interface IInput {
   placeHolder?: string;
   validate?: object;
   label?: string;
+  defaultValue?: string;
 }
 const FormInputs = ({
   type,
@@ -22,6 +23,7 @@ const FormInputs = ({
   id,
   placeHolder,
   label,
+  defaultValue,
 }: IInput) => {
   const {
     control,

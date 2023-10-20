@@ -8,6 +8,7 @@ import { SetStateAction, useEffect, useState } from "react";
 import Navber from "@/components/ui/Header";
 import NavigationBar from "@/components/ui/NavigationBar";
 import { useGetProfileQuery } from "@/redux/api/auth/authSlice";
+import Footer from "@/components/ui/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,12 +35,14 @@ export default function RootLayout({
       setUser(null);
     }
   }, [userLoggedIn, user, loading]);
+
   return (
     <Providers>
       <html lang="en" data-theme="light">
         <body className={inter.className}>
           <NavigationBar></NavigationBar>
           {children}
+          <Footer></Footer>
         </body>
       </html>
     </Providers>

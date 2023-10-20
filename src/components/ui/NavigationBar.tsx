@@ -61,66 +61,54 @@ const NavigationBar = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Dashboard</a>
+              <Link href={"/profile"}>Dashboard</Link>
             </li>
 
             <li>
-              <a>Services</a>
+              <Link href={"/services"}>Services</Link>
+            </li>
+
+            <li>
+              <Link href={"/blog"}>blog</Link>
             </li>
             <li>
-              <a>Add Services</a>
+              <Link href={"/faq"}>Faq</Link>
             </li>
             <li>
-              <a>Orders</a>
-            </li>
-            <li>
-              <a>Blog</a>
-            </li>
-            <li>
-              <a>Faq</a>
-            </li>
-            <li>
-              <a>About us</a>
+              <Link href={"/about"}>About Us</Link>
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+        <Link href={"/"} className="btn btn-ghost normal-case text-xl">
+          Pc Sollution
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
+          {user.user._id ? (
+            <li>
+              <Link href={"/profile"}>Dashboard</Link>
+            </li>
+          ) : (
+            ""
+          )}
+
           <li>
-            <a>Dashboard</a>
+            <Link href={"/services"}>Services</Link>
           </li>
 
           <li>
-            <a>Services</a>
+            <Link href={"/blog"}>blog</Link>
           </li>
           <li>
-            <Link href={"/add-service"}>Add service</Link>
+            <Link href={"/faq"}>Faq</Link>
           </li>
           <li>
-            <a>Orders</a>
-          </li>
-
-          <li>
-            <a>Blog</a>
-          </li>
-          <li>
-            <a>Faq</a>
-          </li>
-          <li>
-            <a>About us</a>
+            <Link href={"/about"}>About Us</Link>
           </li>
         </ul>
       </div>
       <div className="flex-none gap-2 navbar-end">
-        <div className="form-control">
-          <input
-            type="text"
-            placeholder="Search"
-            className="input input-bordered w-24 md:w-auto"
-          />
-        </div>
         {/*  */}
         <div>
           <div className="flex-none">
@@ -188,10 +176,10 @@ const NavigationBar = () => {
                 </div>
               </li>
               <li>
-                <a className="justify-between">
+                <Link href={"/profile"} className="justify-between">
                   Profile
                   <span className="badge">New</span>
-                </a>
+                </Link>
               </li>
               <li>
                 <Button

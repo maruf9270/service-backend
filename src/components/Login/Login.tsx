@@ -1,5 +1,5 @@
 "use client";
-import { Button, Col, Row, message } from "antd";
+import { Button, Col, Divider, Row, message } from "antd";
 import Image from "next/image";
 import LoginImage from "../../assets/Tablet login.gif";
 import From from "../Form/Form";
@@ -34,7 +34,7 @@ const Login = () => {
       localStorage.setItem("loggedIn", true as unknown as string);
     }
     if (isError) {
-      message.error("Error");
+      message.error("Something went wrong");
     }
     if (user?.user?._id) {
       route.push("/");
@@ -47,21 +47,13 @@ const Login = () => {
           <Image src={LoginImage} height={500} alt="log"></Image>
         </Col>
         <Col className="gutter-row" xs={22} sm={22} md={10} lg={10} xl={10}>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              height: "100%",
-              border: "1px solid #f2efe8",
-            }}
-          >
+          <div>
+            <Divider orientation="center">Login</Divider>
             <From
               submitHandler={SubmitHandler}
               resolver={yupResolver(LoginSchema)}
             >
-              <div>
+              <div className="w-[80%]">
                 <FormInputs
                   name="email"
                   label="Email"
@@ -69,7 +61,7 @@ const Login = () => {
                   size="large"
                 ></FormInputs>
               </div>
-              <div>
+              <div className="w-[80%]">
                 <FormInputs
                   name="password"
                   label="Password"
@@ -77,7 +69,7 @@ const Login = () => {
                   size="large"
                 ></FormInputs>
               </div>
-              <div>
+              <div className="mt-4">
                 <Button type="primary" size="large" htmlType="submit">
                   Login
                 </Button>

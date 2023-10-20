@@ -6,7 +6,12 @@ import FormInputText from "@/components/Form/textarea";
 import ImageUploader from "@/components/Image/ImageComponent";
 import { useAppSelector } from "@/hooks/redux";
 import { useGetCategoryQuery } from "@/redux/api/category/categorySlice";
-import { usePostServiceMutation } from "@/redux/api/service/serviceSlice";
+import {
+  useDeleteServiceMutation,
+  useGetServiceQuery,
+  usePatchServiceMutation,
+  usePostServiceMutation,
+} from "@/redux/api/service/serviceSlice";
 import { Button, Divider, message } from "antd";
 import TextArea from "antd/es/input/TextArea";
 import { useEffect } from "react";
@@ -32,7 +37,7 @@ const publishingOptions = [
     label: "Unpublish",
   },
 ];
-const AddService = () => {
+const AddService = ({ params }: { params: { id: string } }) => {
   const { data } = useGetCategoryQuery(undefined);
   const category = data?.data
     ? data.data.map((data: any) => {
@@ -42,35 +47,47 @@ const AddService = () => {
         };
       })
     : undefined;
-  const [post, { isError, isLoading, isSuccess }] = usePostServiceMutation();
+  const { data: sdata }: any = useGetServiceQuery(params.id);
+
+  const [post, { isError, isLoading, isSuccess }] = usePatchServiceMutation();
 
   const submitHandler = (params: any) => {
     const priceTonumber = Number(params.price);
     params.price = priceTonumber;
-
-    const fromData = new FormData();
-    fromData.append("image", params.image);
-    fetch(
-      "https://api.imgbb.com/1/upload?key=d700aa3754b0d575e642546c26e82c11",
-      {
-        method: "POST",
-        body: fromData,
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        params.image = data.data.url;
-
-        post(params);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    if (params.image !== sdata.image) {
+      const fromData = new FormData();
+      fromData.append("image", params.image);
+      fetch(
+        "https://api.imgbb.com/1/upload?key=d700aa3754b0d575e642546c26e82c11",
+        {
+          method: "POST",
+          body: fromData,
+        }
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          params.image = data.data.url;
+          const pdata = {
+            data: params,
+            id: sdata.data._id,
+          };
+          post(pdata);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    } else {
+      const pdata = {
+        data: params,
+        id: sdata.data._id,
+      };
+      post(pdata);
+    }
   };
 
   useEffect(() => {
     if (isSuccess) {
-      message.success("Service Posted successfully!");
+      message.success("Service Updated successfully!");
     }
     if (isError) {
       message.error("Something went wrong!");
@@ -78,7 +95,7 @@ const AddService = () => {
   }, [isError, isSuccess, data]);
   return (
     <div>
-      <From submitHandler={submitHandler}>
+      <From submitHandler={submitHandler} defaultValue={sdata?.data}>
         <div>
           <h1 className="text-xl font-serif text-center">Add a new service</h1>
         </div>

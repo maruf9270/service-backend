@@ -1,5 +1,7 @@
 import CommentForm from "@/components/ui/Comment";
+import { Button } from "antd";
 import Image from "next/image";
+import Link from "next/link";
 
 const page = async ({ params }: { params: { id: string } }) => {
   const data = await getData(params.id);
@@ -10,7 +12,7 @@ const page = async ({ params }: { params: { id: string } }) => {
         <div className=" md:w-[60%] w-[100%]  flex justify-center ">
           <Image
             src={data?.data?.image}
-            width={500}
+            width={600}
             height={300}
             alt="Des"
             className="rounded-md"
@@ -18,18 +20,40 @@ const page = async ({ params }: { params: { id: string } }) => {
         </div>
         <div className=" md:w-[40%] w-[100%] ">
           <div>
-            <h2>{data?.data?.title}</h2>
+            <h2 className="text-4xl font-bold font-serif">
+              {data?.data?.title}
+            </h2>
           </div>
           <div>
-            <p>Price: {data?.data?.price}</p>
-
-            <p>{data?.data?.description}</p>
+            <p>
+              <span className="text-xl font-mono font-bold">Price:</span>{" "}
+              {data?.data?.price}
+            </p>
+            <div>
+              <Button
+                type="primary"
+                className="w-full my-3"
+                disabled={data.available === false ? true : false}
+              >
+                Add to Cart
+              </Button>
+              <Link href={`/book-apointment/${params.id}`}>
+                <Button
+                  type="primary"
+                  className="w-full"
+                  disabled={data.available === false ? true : false}
+                >
+                  Book an Apointment
+                </Button>
+              </Link>
+            </div>
+            <span className="text-xl font-bold">Description:</span> <br />
+            <p className="font-mono">{data?.data?.description}</p>
           </div>
         </div>
       </div>
       <div>
-        <h1>Description</h1>
-        <p>{data?.data?.description}</p>
+        <hr className="" />
       </div>
       <div>
         <CommentForm serviceId={data?.data?._id}></CommentForm>

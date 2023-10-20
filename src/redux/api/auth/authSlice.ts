@@ -44,6 +44,23 @@ const authApi: any = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["user"],
     }),
+    updateUser: build.mutation({
+      query: (params: { id: string; data: any }) => ({
+        url: `/auth/${params.id}`,
+        method: "PATCH",
+        data: params.data,
+        contentType: "application/json",
+      }),
+      invalidatesTags: ["profile", "user", "admin"],
+    }),
+    getAdmin: build.query({
+      query: (id: string) => ({
+        url: `/auth/${id}`,
+        method: "GET",
+        contentType: "application/json",
+      }),
+      providesTags: ["admin"],
+    }),
   }),
 });
 
@@ -53,4 +70,6 @@ export const {
   useGetProfileQuery,
   useGetAllQuery,
   useDeleteUserMutation,
+  useUpdateUserMutation,
+  useGetAdminQuery,
 } = authApi;

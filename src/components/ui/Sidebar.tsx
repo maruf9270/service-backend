@@ -1,15 +1,20 @@
-import React from "react";
-import { Breadcrumb, Layout, Menu, theme } from "antd";
+"use client";
+import { Breadcrumb, Layout, Menu, MenuProps, theme } from "antd";
 
-import { useState } from "react";
+import { use, useState } from "react";
+
 import sidebarItems from "../constant/sidebarItems";
+import { useAppSelector } from "@/hooks/redux";
 
 const { Sider } = Layout;
 const Sidebar = () => {
+  const user = useAppSelector((state) => state.user);
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+  // @ts-ignore
+  const sidebarprop: MenuProps["items"] = sidebarItems(user?.user?.role);
   return (
     <Sider
       width={200}
@@ -36,7 +41,7 @@ const Sidebar = () => {
         defaultSelectedKeys={["1"]}
         defaultOpenKeys={["sub1"]}
         style={{ height: "100%", borderRight: 0 }}
-        items={sidebarItems("margin")}
+        items={sidebarprop}
         theme="light"
       />
     </Sider>

@@ -18,3 +18,9 @@ export const LoginSchema = youp.object().shape({
   password: youp.string().min(6).max(32).required("Password is required"),
   email: youp.string().email().required("Email is required"),
 });
+
+export const blogSchema = youp.object().shape({
+  title: youp.string().required("TItle is required"),
+  description: youp.string().required("description is required"),
+  image: youp.string().required("image is required"),
+});

@@ -4,6 +4,7 @@ import { Badge, Button, Descriptions, Divider } from "antd";
 import Image from "next/image";
 import React from "react";
 import type { DescriptionsProps } from "antd";
+import Link from "next/link";
 
 const Page = () => {
   const user = useAppSelector((state) => state.user);
@@ -64,7 +65,9 @@ const Page = () => {
               <Descriptions items={items} size="small"></Descriptions>
             </div>
 
-            <Button type="primary">Edit Profile</Button>
+            <Link href={"/update-profile"}>
+              <Button type="primary">Edit Profile</Button>
+            </Link>
           </div>
         </div>
       </div>

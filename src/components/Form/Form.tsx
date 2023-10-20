@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode } from "react";
+import React, { ReactElement, ReactNode, useEffect } from "react";
 import {
   useForm,
   FormProvider,
@@ -36,6 +36,8 @@ export default function From({
     submitHandler(data);
     reset();
   };
+
+  useEffect(() => reset(defaultValue), [defaultValue, reset, methods]);
 
   return (
     <FormProvider {...methods}>

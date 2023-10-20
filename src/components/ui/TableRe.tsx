@@ -1,9 +1,11 @@
 import { useAppSelector } from "@/hooks/redux";
 import { usePatchBookMutation } from "@/redux/api/appointment/apointmentSlice";
 import { message } from "antd";
+import Image from "next/image";
 import React, { useEffect } from "react";
 
 const TableRe = ({ data }: { data: any }) => {
+  console.log(data);
   const user = useAppSelector((state) => state.user);
 
   const [patch, { isError, isSuccess }] = usePatchBookMutation();
@@ -14,7 +16,7 @@ const TableRe = ({ data }: { data: any }) => {
     });
   };
   //   onChange
-  const change = (e, id) => {
+  const change = (e: any, id: string) => {
     patch({
       id: id,
       status: e.target.value,
@@ -50,16 +52,18 @@ const TableRe = ({ data }: { data: any }) => {
                   <div className="flex items-center space-x-3">
                     <div className="avatar">
                       <div className="mask mask-squircle w-12 h-12">
-                        <img
-                          src="/tailwind-css-component-profile-2@56w.png"
-                          alt="Avatar Tailwind CSS Component"
-                        />
+                        <Image
+                          src={o?.serviceId?.image}
+                          height={50}
+                          width={50}
+                          alt="feji"
+                        ></Image>
                       </div>
                     </div>
                     <div>
-                      <div className="font-bold">{o.serviceId.title}</div>
+                      <div className="font-bold">{o?.serviceId?.title}</div>
                       <div className="text-sm opacity-50">
-                        {o.serviceId.price}
+                        {o?.serviceId?.price}
                       </div>
                     </div>
                   </div>
@@ -67,7 +71,7 @@ const TableRe = ({ data }: { data: any }) => {
                 <td>
                   {o.date}
                   <br />
-                  <span className="badge badge-ghost badge-sm">{o.slot}</span>
+                  <span className="badge badge-ghost badge-sm">{o?.slot}</span>
                 </td>
                 <td>{o.status}</td>
                 {user?.user?.role == "user" ? (

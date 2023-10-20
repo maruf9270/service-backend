@@ -5,8 +5,9 @@ import ImageUploader from "@/components/Image/ImageComponent";
 import { useAppDispatch } from "@/hooks/redux";
 import { useUserLoginMutation } from "@/redux/api/auth/authSlice";
 import { signUpSchema } from "@/schemas/signUpSchema";
+import { UserOutlined } from "@ant-design/icons";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Alert, Button, message } from "antd";
+import { Alert, Button, Divider, message } from "antd";
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 import { SubmitHandler } from "react-hook-form";
@@ -52,62 +53,77 @@ const Page = () => {
       .catch((error) => {});
   };
   return (
-    <div>
+    <div className="max-w-7xl mx-auto">
       <From submitHandler={submitHandler} resolver={yupResolver(signUpSchema)}>
+        <Divider orientation="left">
+          <UserOutlined /> Personal Information
+        </Divider>
         <div>
-          <FormInputs
-            name="name.firstName"
-            label="First Name"
-            type="text"
-            size="large"
-          ></FormInputs>
-          <FormInputs
-            name="name.middleName"
-            label="Middle Name"
-            type="text"
-            size="large"
-          ></FormInputs>
-          <FormInputs
-            name="name.lastName"
-            label="Last Name"
-            type="text"
-            size="large"
-          ></FormInputs>
-        </div>
-        <div>
-          <FormInputs
-            name="email"
-            label="Email"
-            type="email"
-            size="large"
-          ></FormInputs>
-          <FormInputs
-            name="password"
-            label="Password"
-            type="password"
-            size="large"
-          ></FormInputs>
-          <FormInputs
-            name="phone"
-            label="Phone"
-            type="text"
-            size="large"
-          ></FormInputs>
-          <FormInputs
-            name="address"
-            label="address"
-            type="text"
-            size="large"
-          ></FormInputs>
-        </div>
-        <div>
-          <ImageUploader name="profileImage"></ImageUploader>
-        </div>
-
-        <div>
-          <Button htmlType="submit" type="primary">
-            Sign Up
-          </Button>
+          <div className="flex flex-col md:flex-row justify-between items-center w-full">
+            <div className="w-full md:w-[30%]">
+              <FormInputs
+                name="name.firstName"
+                label="First Name"
+                size="large"
+              ></FormInputs>
+            </div>
+            <div className="w-full md:w-[30%]">
+              <FormInputs
+                name="name.middleName"
+                label="Middle Name"
+                size="large"
+              ></FormInputs>
+            </div>
+            <div className="w-full md:w-[30%]">
+              <FormInputs
+                name="name.lastName"
+                label="Last Name"
+                size="large"
+              ></FormInputs>
+            </div>
+          </div>
+          <div className="my-5">
+            <ImageUploader name="profileImage"></ImageUploader>
+          </div>
+          <Divider orientation="left">Contant Informaing</Divider>
+          <div>
+            <div className="flex flex-col md:flex-row justify-between items-center w-full">
+              <div className="w-full md:w-[30%] flex-nowrap">
+                <FormInputs
+                  name="email"
+                  label="Email"
+                  size="large"
+                ></FormInputs>
+              </div>
+              <div className="w-full md:w-[30%]">
+                <FormInputs
+                  name="phone"
+                  label="Phone Number"
+                  size="large"
+                ></FormInputs>
+              </div>
+              <div className="w-full md:w-[30%]">
+                <FormInputs
+                  name="password"
+                  label="Password"
+                  size="large"
+                  type="password"
+                ></FormInputs>
+              </div>
+            </div>
+            <div className="w-full md:w-[30%]">
+              <FormInputs
+                name="address"
+                label="Address"
+                size="large"
+              ></FormInputs>
+            </div>
+          </div>
+          <div className="flex justify-start my-10">
+            <Button type="primary" size="large" htmlType="submit">
+              Submit
+            </Button>
+          </div>
         </div>
       </From>
     </div>
