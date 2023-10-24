@@ -1,4 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Lovers+Quarrel&display=swap');
+.animation {
+    transition: animation transfrom;
+    
+   animation: myanim 2.4 linear infinite;
+   transform: translate(-100px)
 
+  
+   
+}
+
+@keyframes myanim{
+    to{
+        transform: translate(100px)
+    }
+
+}

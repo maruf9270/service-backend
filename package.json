@@ -42,9 +42,3 @@
 }
 
 
-front-code = https://github.com/maruf9270/service-backend.git
-front-live = https://service-backend.vercel.app/create-blog
-back-live =  https://tutoring-service-backend.vercel.app
-back-code = https://github.com/maruf9270/tutoring-service-backend
-
-video = https://drive.google.com/file/d/1CNL9LdyuEuaJmUK-86_9WS08Jc6nXmm0/view?usp=share_link
