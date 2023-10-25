@@ -122,7 +122,9 @@ export default function Home() {
         <h1 className="text-2xl md:text-5xl font-bold text-center flex items-center justify-center py-10">
           Client Reviews
         </h1>
-        <HomeReview></HomeReview>
+        <div className="bg-[#CFEAF0] py-28">
+          <HomeReview></HomeReview>
+        </div>
       </div>
     </>
   );
