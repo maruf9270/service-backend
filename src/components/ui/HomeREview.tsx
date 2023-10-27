@@ -52,7 +52,7 @@ const HomeReview = () => {
       },
     ],
   };
-  console.log(allReviews);
+
   return (
     <div className="w-[90%] mx-auto pb-10] relative overflow-hidden">
       <div className="flex flex-col justify-center items-center">

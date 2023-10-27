@@ -1,6 +1,7 @@
 "use client";
 
 import Hero from "@/components/homepage/Hero";
+import { motion, useScroll, useSpring } from "framer-motion";
 import Service from "@/components/homepage/Service";
 import HomeReview from "@/components/ui/HomeREview";
 import heroImage from "../assets/heroMan.png";
@@ -11,8 +12,17 @@ import Dots from "../assets/dots.png";
 import About_me from "@/components/homepage/about-me/About_me";
 import States from "@/components/homepage/States";
 import HoverAnimation from "@/components/homepage/HoverAnimation";
+import CoursesCarusoul from "@/components/ui/CoursesCarusoul";
+import Achievement from "@/components/ui/Achievement";
+import HowToEnroll from "@/components/homepage/HowToEnroll";
 
 export default function Home() {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 10,
+    damping: 30,
+    restDelta: 0.001,
+  });
   const { data, isLoading } = useGetCategoryQuery(undefined);
   console.log(data);
   return (
@@ -89,12 +99,20 @@ export default function Home() {
       <div>
         <HoverAnimation></HoverAnimation>
       </div>
+
       <div>
         <States></States>
       </div>
+
+      {/* <motion.div
+        initial={{ y: 200, opacity: 0 }}
+        whileInView={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
+        exit={{ opacity: 0 }}
+      > */}
       <div className="my-14 mx-auto max-w-7xl">
         <About_me></About_me>
       </div>
+      {/* </motion.div> */}
       <div>
         <h1 className="text-2xl md:text-5xl font-bold text-center flex items-center justify-center py-10">
           Cateogries
@@ -112,11 +130,15 @@ export default function Home() {
           ))}
         </div>
       </div>
+
       <div>
         <h1 className="text-2xl md:text-5xl font-bold text-center flex items-center justify-center py-10">
           Our Featured Services
         </h1>
         <Service></Service>
+      </div>
+      <div>
+        <HowToEnroll></HowToEnroll>
       </div>
       <div>
         <h1 className="text-2xl md:text-5xl font-bold text-center flex items-center justify-center py-10">
@@ -125,6 +147,9 @@ export default function Home() {
         <div className="bg-[#CFEAF0] py-28">
           <HomeReview></HomeReview>
         </div>
+      </div>
+      <div>
+        <CoursesCarusoul></CoursesCarusoul>
       </div>
     </>
   );
