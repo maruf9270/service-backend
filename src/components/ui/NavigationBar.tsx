@@ -37,7 +37,10 @@ const NavigationBar = () => {
   const user = useAppSelector((state) => state.user);
 
   return (
-    <div className="navbar sticky top-0 bg-base-100 max-w-[100vw] z-50">
+    <div
+      className="navbar sticky top-0 bg-base-100 max-w-[100vw] z-50 bg-white-900 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30"
+      style={{ background: `rgba(255,255,255,255,.5')` }}
+    >
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">

@@ -8,7 +8,7 @@ const Hero = () => {
         className="custom-shape-divider-bottom-1697273216"
         style={{
           position: "absolute",
-          bottom: "-5%",
+          bottom: -1,
           left: 0,
           right: 0,
           zIndex: 0,

@@ -15,6 +15,7 @@ import HoverAnimation from "@/components/homepage/HoverAnimation";
 import CoursesCarusoul from "@/components/ui/CoursesCarusoul";
 import Achievement from "@/components/ui/Achievement";
 import HowToEnroll from "@/components/homepage/HowToEnroll";
+import Teachers from "@/components/ui/Teachers";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -29,70 +30,85 @@ export default function Home() {
     <>
       <div
         style={{ position: "relative" }}
-        className="mb-10 bg-[#f2efe8] max-w-screen-2xl mx-auto pt-7  "
+        className="mb-10 bg-[#f2efe8] max-w-screen-2xl mx-auto pt-7 h-full overflow-hidden "
       >
         <div className="w-full flex flex-col md:flex-row">
-          <div className="w-full md:w-[50%] p-5 ">
-            <div
-              style={{
-                border: "5px solid black",
-                padding: "20px 40px",
-                borderRadius: "0px 20px 20px 20px",
+          <div className="w-full md:w-[50%] pt-7 px-10 ">
+            <motion.div
+              initial={{ opacity: 0, y: -50 }}
+              whileInView={{ opacity: 1, y: 0, transition: { duration: 1 } }}
+            >
+              <div
+                style={{
+                  border: "3px solid black",
+                  padding: "20px 40px",
+                  borderRadius: "0px 20px 20px 20px",
+                  display: "inline-block",
+                }}
+                className="font-mono text-lg my-6"
+              >
+                With Proven by Science Method
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.8, delay: 1 },
               }}
             >
-              With Proven by Science Method
-            </div>
-            <div
-              style={{
-                border: "5px solid black",
-                padding: "20px 40px",
-                borderRadius: "0px 20px 20px 20px",
+              <div className="text-7xl font-bold my-6">
+                Lorem ipsum dolor sit amet. psum dolor sit amet.
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                transition: { delay: 1.8, duration: 0.8 },
               }}
             >
-              With Proven by Science Method
-            </div>
-            <div
-              style={{
-                border: "5px solid black",
-                padding: "20px 40px",
-                borderRadius: "0px 20px 20px 20px",
-              }}
-            >
-              With Proven by Science Method
-            </div>
-            <div
-              style={{
-                border: "5px solid black",
-                padding: "20px 40px",
-                borderRadius: "0px 20px 20px 20px",
-              }}
-            >
-              With Proven by Science Method
-            </div>
-            <div></div>
+              <div className="w-full md:w-[60%] my-6 ">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Blanditiis inventore soluta impedit neque mollitia magni.
+              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  transition: { delay: 2.16, duration: 1 },
+                }}
+              >
+                <div className=" my-6">
+                  <button className="btn btn-primary p-10">DO something</button>
+                </div>
+              </motion.div>
+            </motion.div>
           </div>
-          <div className="w-full md:w-[50%] md:pl-52 relative ">
-            <Image
-              src={Dots}
-              height={200}
-              width={200}
-              className="absolute"
-              style={{
-                top: "45px",
-                right: "200px",
+          <div className="w-full md:w-[50%]  flex items-center justify-center mx-auto ">
+            <motion.div
+              initial={{ opacity: 0, x: 200 }}
+              whileInView={{
+                opacity: 1,
+                x: 0,
+                transition: { duration: 1, delay: 1 },
               }}
-              alt="jfiej"
-            ></Image>
-            <Image
-              src={heroImage}
-              height={500}
-              width={500}
-              className="z-10 animation items-end"
-              alt="feik"
-            ></Image>
+            >
+              <Image
+                src={heroImage}
+                height={600}
+                width={600}
+                style={{}}
+                alt="feik"
+              ></Image>
+            </motion.div>
           </div>
         </div>
-        <div className="relative bottom-0 ">
+        <div className="">
           <Hero></Hero>
         </div>
       </div>
@@ -139,6 +155,9 @@ export default function Home() {
       </div>
       <div>
         <HowToEnroll></HowToEnroll>
+      </div>
+      <div>
+        <Teachers></Teachers>
       </div>
       <div>
         <h1 className="text-2xl md:text-5xl font-bold text-center flex items-center justify-center py-10">
