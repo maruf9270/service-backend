@@ -9,12 +9,12 @@ const HoverAnimation = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1, transition: { staggerChildren: 10 } }}
       >
-        <div className="flex items-center justify-center flex-row md:flex-col">
+        <div className="flex items-center justify-center flex-col my-5">
           <motion.div
             initial={{ y: -50 }}
             whileInView={{ y: 0, transition: { duration: 1 } }}
           >
-            <h2 className="text-xl md:text-2xl font-bold text-center justify-center py-6 px-6 border-[3px] border-black rounded-full inline-block">
+            <h2 className="text-xl md:text-2xl font-bold text-center justify-center py-4 px-6 border-[3px] border-black rounded-full inline-block">
               Cateogries
             </h2>
           </motion.div>
@@ -30,12 +30,17 @@ const HoverAnimation = () => {
               Services I Can Provide For My Clients
             </p>
           </motion.div>
-          <p className="text-center text-sm ">
-            I can help you in this particular areas.
-          </p>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1, transition: { duration: 1 } }}
+          >
+            <p className="text-center text-sm ">
+              I can help you in this particular areas.
+            </p>
+          </motion.div>
         </div>
       </motion.div>
-      <div className=" overflow-hidden grid grid-cols-1 md:grid-cols-3 gap-4 py-14 max-w-7xl mx-auto ">
+      <div className="mb-5 overflow-hidden grid grid-cols-1 md:grid-cols-3 gap-4 py-14 max-w-7xl mx-auto  w-[98%] md:w-full  ">
         <motion.div
           initial={{ opacity: 0, y: 200 }}
           whileInView={{ opacity: 1, y: 0, transition: { duration: 1 } }}

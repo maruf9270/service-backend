@@ -20,8 +20,8 @@ const About_me = () => {
   };
 
   return (
-    <div className="grid grid-cols-12 ">
-      <div className="col-span-6">
+    <div className="grid grid-cols-6 md:grid-cols-12">
+      <div className="col-span-6 mb-12 md:mb-5">
         <motion.div variants={container} initial="hidden" whileInView="show">
           <motion.div variants={item}>
             <div>— About Me</div>
@@ -61,7 +61,7 @@ const About_me = () => {
         </motion.div>
       </div>
 
-      <div className="col-span-5 justify-self-end">
+      <div className="col-span-5 md:justify-self-end justify-self-center mt-5">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1, transition: { staggerChildren: 1 } }}
@@ -69,7 +69,7 @@ const About_me = () => {
           <motion.div
             initial={{ scale: 0 }}
             whileInView={{
-              transition: { duration: 2 },
+              transition: { duration: 1 },
               scale: 1,
             }}
           >
@@ -90,7 +90,11 @@ const About_me = () => {
 
           <motion.div
             initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0, transition: { duration: 1 } }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+              transition: { duration: 1, delay: 0.5 },
+            }}
           >
             <div
               style={{

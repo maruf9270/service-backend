@@ -33,7 +33,7 @@ export default function Home() {
         className="mb-10 bg-[#f2efe8] max-w-screen-2xl mx-auto pt-7 h-full overflow-hidden "
       >
         <div className="w-full flex flex-col md:flex-row">
-          <div className="w-full md:w-[50%] pt-7 px-10 ">
+          <div className="w-[95%] md:w-[50%] pt-7 px-10 mx-auto md:mx-1 text-center md:text-left ">
             <motion.div
               initial={{ opacity: 0, y: -50 }}
               whileInView={{ opacity: 1, y: 0, transition: { duration: 1 } }}
