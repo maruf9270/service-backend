@@ -83,8 +83,10 @@ export default function Home() {
                   transition: { delay: 2.16, duration: 1 },
                 }}
               >
-                <div className=" my-6">
-                  <button className="btn btn-primary p-10">DO something</button>
+                <div className=" my-6 p-0 inline-block">
+                  <button className="btn bg-[#1677ff] text-white hover:scale-125 hover:btn-success">
+                    DO something
+                  </button>
                 </div>
               </motion.div>
             </motion.div>
