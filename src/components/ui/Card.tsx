@@ -8,7 +8,7 @@ import Rating from "./Stars";
 const Card = ({ data }: { data: IService }) => {
   return (
     <>
-      <div className="h-400 overflow-hidden border-[1px] border-stone-400 rounded-lg w-[90%]">
+      <div className="h-400 overflow-hidden border-[1px] border-stone-400 rounded-lg gap-2 ml-2">
         <div className="h-[400px] hover:-translate-y-full transition ease-in-out duration-500">
           <div className=" h-full p-5 ">
             <div className="flex items-center justify-center ">
@@ -16,7 +16,7 @@ const Card = ({ data }: { data: IService }) => {
                 src={data.image}
                 height={200}
                 width={180}
-                className="rounded-md"
+                className="rounded-md max-h-48"
                 alt="Course Image"
               ></Image>
             </div>

@@ -115,7 +115,7 @@ export default function Home() {
         </div>
       </div>
       <div>
-        <HoverAnimation></HoverAnimation>
+        <Service></Service>
       </div>
 
       <div>
@@ -149,12 +149,6 @@ export default function Home() {
         </div>
       </div>
 
-      <div>
-        <h1 className="text-2xl md:text-5xl font-bold text-center flex items-center justify-center py-10">
-          Our Featured Services
-        </h1>
-        <Service></Service>
-      </div>
       <div>
         <HowToEnroll></HowToEnroll>
       </div>
