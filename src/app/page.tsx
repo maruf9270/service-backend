@@ -59,7 +59,7 @@ export default function Home() {
                 transition: { duration: 0.8, delay: 1 },
               }}
             >
-              <div className="text-7xl font-bold my-6">
+              <div className="text-4xl md:text-7xl font-bold my-6">
                 Lorem ipsum dolor sit amet. psum dolor sit amet.
               </div>
             </motion.div>
