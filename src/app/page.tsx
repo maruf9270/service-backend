@@ -16,6 +16,7 @@ import CoursesCarusoul from "@/components/ui/CoursesCarusoul";
 import Achievement from "@/components/ui/Achievement";
 import HowToEnroll from "@/components/homepage/HowToEnroll";
 import Teachers from "@/components/ui/Teachers";
+import catImage from "../assets/CategoryImage.png";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -138,7 +139,13 @@ export default function Home() {
         <div className="flex justify-between flex-wrap max-w-7xl mx-auto items-center">
           {data?.data.map((data: any) => (
             <Link href={`/service-bycat/${data?.title}`} key={data._id}>
-              <div className="grid flex-grow h-32 card bg-base-300 rounded-box place-items-center w-64 mx-5 shadow-lg">
+              <div
+                className="grid flex-grow h-32 card bg-base-300 rounded-box place-items-center w-64 mx-5 shadow-lg"
+                style={{
+                  backgroundImage: `url(${catImage.src})`,
+                  backgroundPosition: "center center",
+                }}
+              >
                 <span className="font-sans text-2xl font-bold">
                   {" "}
                   {data.title}
