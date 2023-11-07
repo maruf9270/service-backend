@@ -1,3 +1,4 @@
+"use client";
 import { useState, useEffect } from "react";
 import { Breadcrumb, Layout, Menu, Button, Popover } from "antd";
 import { UnorderedListOutlined } from "@ant-design/icons";

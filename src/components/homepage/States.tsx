@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import bgIMage from "../../assets/BookLibrary.jpg";
 import CountUp from "react-countup";

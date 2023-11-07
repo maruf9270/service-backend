@@ -8,9 +8,9 @@ import Rating from "./Stars";
 const Card = ({ data }: { data: IService }) => {
   return (
     <>
-      <div className="h-400 overflow-hidden border-[1px] border-stone-400 rounded-lg gap-2 ml-2">
+      <div className="h-400 overflow-hidden border-[1px] border-stone-400 rounded-lg gap-2 ml-2 my-1">
         <div className="h-[400px] hover:-translate-y-full transition ease-in-out duration-500">
-          <div className=" h-full p-5 ">
+          <div className=" h-full p-2 ">
             <div className="flex items-center justify-center ">
               <Image
                 src={data.image}
@@ -64,7 +64,13 @@ const Card = ({ data }: { data: IService }) => {
               }}
             />
             <div className="z-10 text-white p-5">
-              <div className=" text-justify">{data.description}</div>
+              <div className=" text-justify text-sm">
+                {data.description.length > 500 ? (
+                  <>{data.description.slice(0, 500)}...</>
+                ) : (
+                  data.description
+                )}
+              </div>
               <div className="absolute bottom-6 flex justify-between w-[88%]">
                 <Link href={`/single-service/${data._id}`}>
                   <Button type="primary">See Details</Button>
