@@ -7,10 +7,12 @@ import { Skeleton } from "antd";
 
 const Service = () => {
   let delay = 0;
-  const { data, isLoading, isError }: any = useGetServicesQuery(undefined);
+
+  const { data, isLoading, isError }: any = useGetServicesQuery({
+    name: "Maruf",
+  });
   const n = 5; // Adjust this to the desired range
   const numbers = Array.from({ length: n }, (_, index) => index + 1);
-  console.log(numbers);
 
   return (
     <>

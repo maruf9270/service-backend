@@ -32,6 +32,7 @@ export const axiosBaseQuery =
           "Content-Type": contentType || "Application/json",
         },
       });
+      console.log(url, method, data, params, headers, contentType, body);
       return { data: result.data };
     } catch (axiosError) {
       const err = axiosError as AxiosError;

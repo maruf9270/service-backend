@@ -11,17 +11,21 @@ const serviceApi = baseApi.injectEndpoints({
       }),
     }),
     getServices: build.query({
-      query: () => ({
+      query: (params: any) => ({
         url: "/services",
         method: "GET",
+        params: params,
+
         contentType: "application/json",
       }),
+
       providesTags: ["service"],
     }),
     getService: build.query({
       query: (id: string) => ({
         url: `/services/${id}`,
         method: "GET",
+
         contentType: "application/json",
       }),
       providesTags: ["service"],

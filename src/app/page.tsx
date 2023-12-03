@@ -61,7 +61,7 @@ export default function Home() {
   );
 }
 
-// export const metadata: Metadata = {
-//   title: "Home Page",
-//   description: "This is the homepage of Pc builder",
-// };
+export const metadata: Metadata = {
+  title: "Home Page",
+  description: "This is the homepage of Pc builder",
+};
